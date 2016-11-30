@@ -6,8 +6,9 @@ public void setup()
 }
 public void draw() 
 {
-  goldLeader.move();
+  background(0);
   goldLeader.show();
+  goldLeader.move();
 }
 class SpaceShip extends Floater  
 { 
@@ -21,7 +22,8 @@ class SpaceShip extends Floater
   public double getDirectionY() {return myDirectionY;}
   public void setPointDirection(int degrees) {myPointDirection = degrees;}
   public double getPointDirection() {return myPointDirection;}
-  SpaceShip()
+
+  public void SpaceShip()
   {  
     corners = 4;
     xCorners = new int[corners];
@@ -34,6 +36,8 @@ class SpaceShip extends Floater
     yCorners[2] = 8;
     xCorners[3] = -2;
     yCorners[3] = 0;
+    myCenterX = 400;
+    myCenterY = 400;
     myColor = color(192, 192, 192);
     myDirectionX = 0;
     myDirectionY = 0;
