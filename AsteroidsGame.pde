@@ -23,7 +23,7 @@ class SpaceShip extends Floater
   public void setPointDirection(int degrees) {myPointDirection = degrees;}
   public double getPointDirection() {return myPointDirection;}
 
-  public void SpaceShip()
+  public SpaceShip()
   {  
     corners = 4;
     xCorners = new int[corners];
@@ -121,4 +121,5 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     endShape(CLOSE);  
   }   
 } 
+public void keyPressed()
 
