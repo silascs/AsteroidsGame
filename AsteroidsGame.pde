@@ -1,14 +1,14 @@
-SpaceShip goldLeader;
+SpaceShip serenity;
 public void setup() 
 {
   size(800,800);
-  goldLeader = new SpaceShip();
+  serenity = new SpaceShip();
 }
 public void draw() 
 {
   background(0);
-  goldLeader.show();
-  goldLeader.move();
+  serenity.show();
+  serenity.move();
 }
 class SpaceShip extends Floater  
 { 
@@ -28,13 +28,13 @@ class SpaceShip extends Floater
     corners = 4;
     xCorners = new int[corners];
     yCorners = new int[corners];
-    xCorners[0] = -8;
-    yCorners[0] = -8;
-    xCorners[1] = 16;
+    xCorners[0] = -10;
+    yCorners[0] = -10;
+    xCorners[1] = 18;
     yCorners[1] = 0;
-    xCorners[2] = -8;
-    yCorners[2] = 8;
-    xCorners[3] = -2;
+    xCorners[2] = -10;
+    yCorners[2] = 10;
+    xCorners[3] = -4;
     yCorners[3] = 0;
     myCenterX = 400;
     myCenterY = 400;
@@ -122,4 +122,34 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   }   
 } 
 public void keyPressed()
+{
+  if (key == 'w')
+  {
+    serenity.accelerate(.2);
+  }
+  if (key == 's')
+  {
+    serenity.accelerate(-.2);
+  }
+  if (key == 'a')
+  {
+    serenity.rotate(-12);
+  }
+  if (key == 'd')
+  {
+    serenity.rotate(12);
+  }
+  if (key == 'h')
+  {
+    serenity.setX((int)(Math.random()*800));
+    serenity.setY((int)(Math.random()*800));
+    serenity.setDirectionX(0);
+    serenity.setDirectionY(0);
+    serenity.setPointDirection((int)(Math.random()*360));
+  }
+}
 
+class Stars
+{
+
+}
