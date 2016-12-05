@@ -1,14 +1,25 @@
 SpaceShip serenity;
+Stars [] sky;
 public void setup() 
 {
   size(800,800);
   serenity = new SpaceShip();
+  sky = new Stars[100];
+  for(int i = 0; i < sky.length; i++)
+    {
+      sky[i] = new Stars();
+    }
+
 }
 public void draw() 
 {
   background(0);
   serenity.show();
   serenity.move();
+  for(int i = 0; i < sky.length; i++)
+    {
+      sky[i].show();
+    }
 }
 class SpaceShip extends Floater  
 { 
@@ -151,5 +162,25 @@ public void keyPressed()
 
 class Stars
 {
+  int starX;
+  int starY;
+  int sSize;
+  int sColor;
+
+  public Stars()
+  {
+    sSize = (int)(Math.random()*8);
+    sColor = color((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
+    starX = (int)(Math.random()*800);
+    starY = (int)(Math.random()*800);
+  }
+
+  public void show()
+  {
+    noStroke();
+    fill(sColor);
+    ellipse(starX, starY, sSize, sSize);
+  }
+
 
 }
