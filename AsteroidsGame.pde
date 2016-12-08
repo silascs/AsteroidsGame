@@ -6,7 +6,7 @@ public void setup()
   size(800,800);
   serenity = new SpaceShip();
   sky = new Stars[100];
-  danger = new Asteroid[10] ;
+  danger = new Asteroid[20] ;
   for(int i = 0; i < sky.length; i++)
     {
       sky[i] = new Stars();
