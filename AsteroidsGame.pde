@@ -1,19 +1,19 @@
 SpaceShip serenity;
 Stars [] sky;
-Asteroid [] danger;
+ArrayList <Asteroid> roids = new ArrayList <Asteroid>();
+ArrayList <Bullet> bob = new ArrayList <Bullet>();
 public void setup() 
 {
   size(800,800);
   serenity = new SpaceShip();
   sky = new Stars[100];
-  danger = new Asteroid[20] ;
   for(int i = 0; i < sky.length; i++)
     {
       sky[i] = new Stars();
     }
-    for(int i = 0; i < danger.length; i++)
+    for(int i = 0; i < 20; i++)
     {
-      danger[i] = new Asteroid();
+      roids.add(new Asteroid());
     }
 
 }
@@ -25,18 +25,39 @@ public void draw()
     {
       sky[i].show();
     }
-    for(int i = 0; i < danger.length; i++)
+
+  for(int i = 0; i < roids.size(); i++)
+  {
+    roids.get(i).show();
+    roids.get(i).move();
+  }
+
+
+  for (int i = 0; i < bob.size(); i++)
+  {
+    bob.get(i).show();
+    bob.get(i).move();
+  }
+  for (int i = 0; i < bob.size(); i++)
+  {
+    for (int j = 0; j < roids.size(); j++)
     {
-      danger[i].show();
-      danger[i].move();
+      if(dist(bob.get(i).getX(), bob.get(i).getY(), roids.get(j).getX(), roids.get(j).getY()) < 20)
+        roids.remove(j);
     }
+  }
   serenity.show();
   serenity.move();
+
 
 }
  
 public void keyPressed()
 {
+  if (key == ' ')
+  {
+    bob.add(new Bullet(serenity));
+  }
   if (key == 'w')
   {
     serenity.accelerate(.2);
